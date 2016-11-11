@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductDetailService} from '../product-detail.service'; 
 
 @Component({
   selector: 'app-home',
@@ -19,9 +20,15 @@ export class HomeComponent implements OnInit {
       { "id": 8,"image":"../../assets/images/img8.jpg" ,"name": "lamp8", "price": 18000, "discount": 0 },
   ];
 
-  constructor() { 
+  constructor(private productdetailservice : ProductDetailService) { 
 
   }
+
+  clickData(lamp,$index){
+    //console.log(lamp,$index);
+    this.productdetailservice.Productdata(lamp);
+  }
+
 
   ngOnInit() {
   }

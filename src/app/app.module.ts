@@ -11,6 +11,10 @@ import { ContactComponent } from './contact/contact.component';
 import { ProductComponent } from './product/product.component';
 import {DropdownModule} from 'ng2-dropdown';
 import {Collapse} from './collapse.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import {ProductDetailService} from './product-detail.service';
+import {AddToCardService} from './add-to-card.service';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import {Collapse} from './collapse.component';
     HomeComponent,
     ContactComponent,
     ProductComponent,
-    Collapse
+    Collapse,
+    ProductDetailComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -29,10 +35,15 @@ import {Collapse} from './collapse.component';
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'product', component: ProductComponent },
-      { path: 'contact', component: ContactComponent }
+      { path: 'contact', component: ContactComponent },
+      { path: 'productDetail', component: ProductDetailComponent },
+      { path: 'checkout', component: CheckoutComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    ProductDetailService,
+    AddToCardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
